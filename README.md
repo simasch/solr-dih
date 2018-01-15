@@ -45,15 +45,12 @@ If you don't want to install PosgreSQL you can use one of these:
 
 2. Add a database with the name `products`
 
-`   CREATE DATABASE products;`
+   `CREATE DATABASE products;`
 
 3. Create the table
 
-   ` create table products
-    (
-    	id serial not null
-    		constraint products_pkey
-    			primary key,
+   `create table products (
+    	id serial not null constraint products_pkey primary key,
     	description varchar(500) not null,
     	modified timestamp not null
     );`
