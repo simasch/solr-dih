@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema name="Article" version="1.5">
+
+    <fieldType name="text" class="solr.TextField" />
+    <fieldType name="int" class="solr.TrieIntField"/>
+    <fieldType name="date" class="solr.TrieDateField"/>
+
+    <fields>
+        <field name="id" type="int" stored="true" indexed="true"/>
+        <field name="description" type="text" stored="true" indexed="true"/>
+        <field name="modified" type="date" stored="true" indexed="true"/>
+    </fields>
+    
+    <uniqueKey>id</uniqueKey>
+</schema>

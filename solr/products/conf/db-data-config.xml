@@ -1,0 +1,16 @@
+<dataConfig>
+    <dataSource type="JdbcDataSource" driver="org.postgresql.Driver" url="jdbc:postgresql://localhost:5432/products"
+                user="user" password="user"/>
+    <document name="product">
+        <entity name="product" pk="id"
+                query="SELECT id, description, modified FROM products"
+                deltaImportQuery="SELECT id, description, modified FROM products WHERE id = ${dih.delta.id}"
+                deltaQuery="SELECT id FROM products WHERE modified &gt; timestamp '${dih.last_index_time}'">
+
+            <field column="id" name="id"/>
+            <field column="description" name="description"/>
+            <field column="modified" name="modified"/>
+
+        </entity>
+    </document>
+</dataConfig>
