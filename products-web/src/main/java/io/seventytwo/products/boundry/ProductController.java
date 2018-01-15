@@ -6,6 +6,7 @@ import io.seventytwo.products.document.Product;
 import io.seventytwo.products.entity.ProductEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,13 +24,13 @@ public class ProductController {
     }
 
     @GetMapping("jpa")
-    public List<ProductEntity> getProductsWithJpa() {
-        return jpaProductRepository.findAll();
+    public List<ProductEntity> getProductsWithJpa(@RequestParam String description) {
+        return jpaProductRepository.findByDescriptionStartingWith(description);
     }
 
     @GetMapping("solr")
-    public Iterable<Product> getProductsWithSolr() {
-        return solrProductRepository.findAll();
+    public Iterable<Product> getProductsWithSolr(@RequestParam String description) {
+        return solrProductRepository.findByDescriptionStartingWith(description);
     }
 
 }
