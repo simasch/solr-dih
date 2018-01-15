@@ -4,7 +4,6 @@ import io.seventytwo.products.control.JpaProductRepository;
 import io.seventytwo.products.control.SolrProductRepository;
 import io.seventytwo.products.document.Product;
 import io.seventytwo.products.entity.ProductEntity;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
