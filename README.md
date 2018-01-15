@@ -39,7 +39,29 @@ If you don't want to install PosgreSQL you can use one of these:
 
 ### User and Schema
 
-Create a user called user with the same password and a database with the name products.
+1. Create a user called `user` with the same password
 
-That's it!
+   `CREATE ROLE user WITH LOGIN PASSWORD 'user';` 
+
+2. Add a database with the name `products`
+
+`   CREATE DATABASE products;`
+
+3. Create the table
+
+   ` create table products
+    (
+    	id serial not null
+    		constraint products_pkey
+    			primary key,
+    	description varchar(500) not null,
+    	modified timestamp not null
+    );`
+
+4. Insert some data
+
+   `INSERT INTO public.products (description, modified) VALUES ('Pen', current_timestamp);`
+       
+
+You are ready to go!
 
